@@ -10,19 +10,29 @@ db = SQLAlchemy(app)
 
 
 @app.route('/')
-def hello_world():
-    return 'Hello World!'
+def blog():
+    return render_template('blog.html')
+
+@app.route('/login')
+def login():
+    return render_template('login.html')
+
+@app.route('/signup')
+def signup():
+    return render_template('signup.html')
+
+@app.route('/newpost')
+def newpost():
+    return render_template('newpost.html')
 
 class Blog():
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(50))
     body = db.Column(db.Text)
-    datetime = db.Column(db.Datetime)
 
     def __init__(self, title, body, datetime):
         self.title = title
         self.body = body
-        self.datetime = datetime
 
 
 if __name__ == '__main__':
