@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 {% block title %}New Blog Post{% endblock %}
 {% block content %}
-<form>
+<form method="POST">
     <div class="form-group">
-        <label for="title">Username</label>
-        <input type="text" class="form-control" id="title" placeholder="Blog Post Title">
+        <label for="title">Blog Title</label>
+        <input type="text" class="form-control" id="title" name="title" placeholder="Blog Post Title">
     </div>
     <div class="form-group">
         <label for="blogBody">Blog Body</label>
-        <textarea class="form-control" id="blogBody" rows="5"></textarea>
+        <textarea class="form-control" id="blogBody" name="blogBody" rows="5"></textarea>
     </div>
     <input class="btn btn-primary" type="submit" value="Submit">
 </form>

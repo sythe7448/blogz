@@ -1,0 +1,7 @@
+CREATE TABLE blogs (
+    id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(40),
+    body TEXT
+)
+
+INSERT INTO blogs (title, body) VALUES ('test blog 1', 'This is a test body post for blog 1'), ('test blog 2', 'This is a test body post for blog 2')

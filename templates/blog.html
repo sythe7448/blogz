@@ -2,4 +2,17 @@
 {% block title %}Blog{% endblock %}
 {% block content %}
     <h1>Blog Posts</h1>
+    {% if blogs|length == 0 %}
+    <p>No blogs yet</p>
+    {% else %}
+
+        <ul>
+            {% for blog in blogs %}
+                <li><h2><a href="/blog?id={{ blog.id }}">{{blog.title}}</a></h2>
+                <p>{{ blog.body }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+
+    {% endif %}
 {% endblock %}
