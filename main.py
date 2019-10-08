@@ -7,6 +7,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://build-a-blog:blogs@loca
 app.config['SQLALCHEMY_ECHO'] = True
 db = SQLAlchemy(app)
 
+
 class Blogs(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(40))
@@ -15,6 +16,7 @@ class Blogs(db.Model):
     def __init__(self, title, body):
         self.title = title
         self.body = body
+
 
 @app.route('/blog', methods=['GET'])
 def blog():
@@ -28,13 +30,12 @@ def blog():
 
         return render_template('blog.html', blogs=blogs)
 
+
 @app.route('/', methods=['GET'])
 def index():
 
-    blogs = Blogs.query.all()
+    return render_template('index.html')
 
-
-    return render_template('blog.html', blogs=blogs)
 
 @app.route('/login')
 def login():
