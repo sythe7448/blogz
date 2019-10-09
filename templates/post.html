@@ -3,4 +3,5 @@
 {% block content %}
     <h1>{{post.title}}</h1>
     <p>{{ post.body }}</p>
+    <p><a href="/blog?username={{ post.owner.username }}">{{ post.owner.username }}</a></p>
 {% endblock %}

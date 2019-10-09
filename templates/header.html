@@ -12,12 +12,21 @@
             <li class="nav-item"><a class="nav-link" href="/">Build A Blog</a></li>
         </ul>
         <ul class="nav navbar-nav">
+            {% if session['username'] %}
+            <li class="nav-item">
+                <a class="nav-link" href="/blog?username={{ session['username'] }}">{{ session['username'] }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/logout">Logout</a>
+            </li>
+            {% else %}
             <li class="nav-item">
                 <a class="nav-link" href="/signup">Sign up</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/login">Login</a>
             </li>
+            {% endif %}
         </ul>
     </div>
 </nav>
